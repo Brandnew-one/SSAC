@@ -28,6 +28,12 @@
 
 `📱 실행화면`
 
+`사용자 정보 저장`
+![drinkWater - 01](https://user-images.githubusercontent.com/88618825/136682986-8acb31cf-78af-409d-80c3-2503c90ec603.gif)
+
+`물 마시기`
+![drinkWater - 02](https://user-images.githubusercontent.com/88618825/136683026-adab7eb6-5ffb-4096-9668-3a1bb07a1a0e.gif)
+
 
 
 
