@@ -10,6 +10,7 @@ import UIKit
 class MainTableViewController: UITableViewController {
     
     let tvShowInformation = TvShowInformation()
+//    var indexRow: Int = 0
     
     @IBOutlet weak var imageSetView: UIView!
     
@@ -75,7 +76,6 @@ class MainTableViewController: UITableViewController {
         cell.releaseDayLabel.text = row.releaseDate
         cell.titileLabel.text = row.title
         
-        
         cell.rateLabel2.text = " \(row.rate) "
         
         cell.overViewLabel.numberOfLines = 1
@@ -85,10 +85,24 @@ class MainTableViewController: UITableViewController {
         let data = try? Data(contentsOf: url!)
         cell.posterImageView.image = UIImage(data: data!)
         
+        //indexRow = indexPath.row
+        //cell.detailButton.addTarget(self, action: #selector(detailButtonClicked2), for: .touchUpInside)
         
         return cell
         
     }
+    
+    
+//    @objc
+//    func detailButtonClicked2() {
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+//
+//        vc.movieTitle = tvShowInformation.tvShow[indexRow].title
+//
+//        present(vc, animated: true, completion: nil)
+//
+//    }
     
     //3. 셀의 높이 : heightForRowAt (default = 44)
     //섹션마다, 셀마다 높이를 다르게 설정 가능
@@ -102,6 +116,9 @@ class MainTableViewController: UITableViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CastTableViewController") as! CastTableViewController
         
+        let row = tvShowInformation.tvShow[indexPath.row]
+        vc.castSpace = row
+        vc.castArray = row.starring.components(separatedBy: ",")
         
         navigationController?.pushViewController(vc, animated: true)
         //Navigation Contorller 스토리 보드에서 설정할 때도 현재 뷰에서 다음 뷰의 뒤로 가기를 설정했음
@@ -109,8 +126,12 @@ class MainTableViewController: UITableViewController {
         
     }
     
-
-
+    
+    @IBAction func detailButtonClickedTest(_ sender: UIButton) {
+        
+    }
+    
+    
 
 
 }

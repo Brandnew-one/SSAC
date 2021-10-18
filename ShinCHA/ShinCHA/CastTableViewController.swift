@@ -8,13 +8,24 @@
 import UIKit
 
 class CastTableViewController: UITableViewController {
-
+    
+    var castSpace: TvShow?
+    var castArray: Array<String> = []
+    
+    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var hearderLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "출연/제작"
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClicked))
         //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonClicked))
+        
+        hearderLabel.text = castSpace?.title
+        let url = URL(string: castSpace?.backdropImage ?? "")
+        let data = try? Data(contentsOf: url!)
+        headerImageView.image = UIImage(data: data!)
         
     }
     
@@ -25,7 +36,7 @@ class CastTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return castArray.count
     }
     
     // 셀의 디자인 및 데이터 처리
@@ -35,8 +46,11 @@ class CastTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.castImageView.image = UIImage(systemName: "chevron.backward")
-        cell.nameLabel.text = "Shin Sang Won"
+        let url = URL(string: castSpace?.backdropImage ?? "")
+        let data = try? Data(contentsOf: url!)
+        
+        cell.castImageView.image = UIImage(data: data!)
+        cell.nameLabel.text = castArray[indexPath.row]
         cell.roleLabel.text = "저는 말하는 감자입니다..."
         
         return cell
