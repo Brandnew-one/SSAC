@@ -18,10 +18,10 @@ class CastTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "출연/제작"
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClicked))
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonClicked))
         
+        navigationItem.title = "출연/제작"
+        
+        // Section Header 설정!
         hearderLabel.text = castSpace?.title
         let url = URL(string: castSpace?.backdropImage ?? "")
         let data = try? Data(contentsOf: url!)
@@ -29,38 +29,76 @@ class CastTableViewController: UITableViewController {
         
     }
     
+    
     @objc
     func backButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    
+    // 섹션 별로 셀의 개수 설정
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return castArray.count
+        //For overview
+        if section == 0 {
+            return 1
+        }
+        //For star
+        else {
+            return castArray.count
+        }
     }
+    
+    
     
     // 셀의 디자인 및 데이터 처리
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else {
-            return UITableViewCell()
+        if indexPath.section == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            let url = URL(string: castSpace?.backdropImage ?? "")
+            let data = try? Data(contentsOf: url!)
+            
+            cell.castImageView.image = UIImage(data: data!)
+            cell.nameLabel.text = castArray[indexPath.row]
+            cell.roleLabel.text = "저는 말하는 감자입니다..."
+            
+            return cell
         }
         
-        let url = URL(string: castSpace?.backdropImage ?? "")
-        let data = try? Data(contentsOf: url!)
-        
-        cell.castImageView.image = UIImage(data: data!)
-        cell.nameLabel.text = castArray[indexPath.row]
-        cell.roleLabel.text = "저는 말하는 감자입니다..."
-        
-        return cell
+        else {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewTableViewCell.identifier, for: indexPath) as? OverviewTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            //cell.overviewLabel.text = castSpace?.overview
+            //cell.overviewLabel.text = "왜 왼쪽으로 숨는것이냐?"
+            
+            return cell
+            
+        }
         
     }
     
+    
     //3. 셀의 높이 : heightForRowAt (default = 44)
-    //섹션마다, 셀마다 높이를 다르게 설정 가능
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
+        
+        if indexPath.section == 1 {
+            return 125
+        }
+        
+        else {
+            return 125
+        }
     }
     
     

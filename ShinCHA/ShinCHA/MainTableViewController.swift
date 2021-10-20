@@ -10,9 +10,10 @@ import UIKit
 class MainTableViewController: UITableViewController {
     
     let tvShowInformation = TvShowInformation()
-//    var indexRow: Int = 0
+    
     
     @IBOutlet weak var imageSetView: UIView!
+    
     
     
     override func viewDidLoad() {
@@ -27,6 +28,21 @@ class MainTableViewController: UITableViewController {
         
 
     }
+    
+    @objc
+    func detailButtonClicked(selectButton: UIButton) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        print(tvShowInformation.tvShow[selectButton.tag].title)
+        //vc.titleLabel?.text = tvShowInformation.tvShow[selectButton.tag].title
+        vc.movieLable = tvShowInformation.tvShow[selectButton.tag].title
+        
+        present(vc, animated: true, completion: nil)
+        
+    }
+    
     
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
         
@@ -85,30 +101,23 @@ class MainTableViewController: UITableViewController {
         let data = try? Data(contentsOf: url!)
         cell.posterImageView.image = UIImage(data: data!)
         
-        //indexRow = indexPath.row
-        //cell.detailButton.addTarget(self, action: #selector(detailButtonClicked2), for: .touchUpInside)
+        cell.detailButton.tag = indexPath.row
+        cell.detailButton.addTarget(self, action: #selector(detailButtonClicked(selectButton:)), for: .touchUpInside)
         
         return cell
         
     }
     
     
-//    @objc
-//    func detailButtonClicked2() {
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-//
-//        vc.movieTitle = tvShowInformation.tvShow[indexRow].title
-//
-//        present(vc, animated: true, completion: nil)
-//
-//    }
+
     
     //3. 셀의 높이 : heightForRowAt (default = 44)
     //섹션마다, 셀마다 높이를 다르게 설정 가능
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height / 2
     }
+    
+    
     
     //셀을 클릭했을 때 기능 -> alert 기능 구현 해보기
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -126,11 +135,15 @@ class MainTableViewController: UITableViewController {
         
     }
     
+
     
-    @IBAction func detailButtonClickedTest(_ sender: UIButton) {
+    @IBAction func bookButtonClicked(_ sender: UIButton) {
         
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "BookViewController") as! BookViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
     
 
 

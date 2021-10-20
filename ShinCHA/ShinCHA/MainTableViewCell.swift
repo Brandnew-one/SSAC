@@ -37,7 +37,7 @@ class MainTableViewCell: UITableViewCell {
     
     @IBAction func detailButtonClicked(_ sender: UIButton) {
         
-        var textLabel = titleLabel.text
+        //var textLabel = titleLabel.text
         
     }
     
