@@ -2,19 +2,13 @@
 //  OverviewTableViewCell.swift
 //  ShinCHA
 //
-//  Created by 신상원 on 2021/10/19.
+//  Created by 신상원 on 2021/10/20.
 //
 
 import UIKit
 
 class OverviewTableViewCell: UITableViewCell {
-    
-    static let identifier = "OverviewTableViewCell"
-    
-    
-    @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet weak var overviewButton: UIButton!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,7 +19,5 @@ class OverviewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
 
 }
