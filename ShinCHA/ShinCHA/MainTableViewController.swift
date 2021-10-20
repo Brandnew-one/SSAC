@@ -145,6 +145,16 @@ class MainTableViewController: UITableViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    @IBAction func ticketButtonClicked(_ sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 
 
 }
