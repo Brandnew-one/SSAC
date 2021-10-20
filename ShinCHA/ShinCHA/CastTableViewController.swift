@@ -11,13 +11,13 @@ class CastTableViewController: UITableViewController {
     
     var castSpace: TvShow?
     var castArray: Array<String> = []
+    var moreOverview: Bool = false
     
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var hearderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         navigationItem.title = "출연/제작"
         
@@ -26,6 +26,8 @@ class CastTableViewController: UITableViewController {
         let url = URL(string: castSpace?.backdropImage ?? "")
         let data = try? Data(contentsOf: url!)
         headerImageView.image = UIImage(data: data!)
+        
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
     
@@ -37,6 +39,12 @@ class CastTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
+    }
+    
+    @objc
+    func overviewButtonClicked() {
+        moreOverview = !moreOverview
+        tableView.reloadRows(at: [ IndexPath(item: 0, section: 0) ], with: .fade)
     }
     
     
@@ -79,8 +87,15 @@ class CastTableViewController: UITableViewController {
                 return UITableViewCell()
             }
             
-            //cell.overviewLabel.text = castSpace?.overview
-            //cell.overviewLabel.text = "왜 왼쪽으로 숨는것이냐?"
+            cell.overviewText.text = castSpace?.overview
+            if moreOverview {
+                cell.overviewText.numberOfLines = 0
+            }
+            else {
+                cell.overviewText.numberOfLines = 2
+            }
+            
+            cell.overviewButton.addTarget(self, action: #selector(overviewButtonClicked), for: .touchUpInside)
             
             return cell
             
@@ -97,7 +112,7 @@ class CastTableViewController: UITableViewController {
         }
         
         else {
-            return 125
+            return UITableView.automaticDimension
         }
     }
     

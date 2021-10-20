@@ -8,6 +8,8 @@
 import UIKit
 
 class OverviewTableViewCell: UITableViewCell {
+    
+    static let identifier = "OverviewTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +21,9 @@ class OverviewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBOutlet weak var overviewText: UILabel!
+    @IBOutlet weak var overviewButton: UIButton!
+    
 
 }
