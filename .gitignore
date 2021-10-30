@@ -1,3 +1,6 @@
 # ignore all API/Constants  files
-API/Constants
+API/Constants.swift
+
+# General
+.DS_Store
 
