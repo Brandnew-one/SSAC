@@ -260,7 +260,8 @@ extension LocationViewController: CLLocationManagerDelegate {
         let lon = 127.067187
         let lat = 37.541366
        
-        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=fd922ad8ec341506329e9c7d603a0bdc"
+        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKey.OPENWEATHER)"
+        
         
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
