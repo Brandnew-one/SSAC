@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  week6
+
+  Created by 신상원 on 2021/11/01.
+  
+*/
+
+"tab_home" = "홈";
+"tab_search" = "검색";
+"tab_calendar" = "캘린더";
+"tab_setting" = "설정";
+"welcome_text" = "안녕하세요~! 반갑습니다!";

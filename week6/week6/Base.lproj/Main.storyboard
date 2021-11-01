@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="week6" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj3-UT-CSF">
+                                <rect key="frame" x="57" y="138" width="300" height="101"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ib-hh-WFW">
+                                <rect key="frame" x="57" y="414" width="300" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mj3-UT-CSF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="Cp0-yD-Tce"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mj3-UT-CSF" secondAttribute="trailing" constant="57" id="KFl-IO-1cR"/>
+                            <constraint firstItem="Mj3-UT-CSF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="94" id="Oo9-Wf-bIn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MEi-ah-n08"/>
+                    <connections>
+                        <outlet property="backupLabel" destination="8ib-hh-WFW" id="bnW-zp-3rA"/>
+                        <outlet property="welcomLabel" destination="Mj3-UT-CSF" id="gPM-HW-2uj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="48"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="h1P-VJ-HWf">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CT1-Y6-xFD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BrR-Vf-jvx">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pCN-Q6-LkG" kind="relationship" relationship="viewControllers" id="eQ6-6u-aGF"/>
+                        <segue destination="b1j-LP-08X" kind="relationship" relationship="viewControllers" id="Vac-pU-Wkp"/>
+                        <segue destination="auk-xa-day" kind="relationship" relationship="viewControllers" id="lCg-KH-yZ1"/>
+                        <segue destination="lUg-yO-28I" kind="relationship" relationship="viewControllers" id="QZz-f8-smK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sXq-Jc-4od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="68.973214285714278"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="6ya-a7-b4I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="b1j-LP-08X" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Hfl-T1-GkG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hv7-Ul-s1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-101" y="496"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="afs-Bn-RxH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="auk-xa-day" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ifF-g7-g9p"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4C-bO-pVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="201" y="496"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="iVS-u6-dWI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="lUg-yO-28I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="j5N-Gs-mQz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cK2-Dl-dEW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="496"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="DRb-zf-qlG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="pCN-Q6-LkG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="hhW-UV-YKC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4w-8K-0LP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="69"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
