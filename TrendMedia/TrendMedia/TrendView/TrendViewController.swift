@@ -75,6 +75,15 @@ class TrendViewController: UIViewController {
     }
     
     
+    @IBAction func boxOfficeButtonClicked(_ sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "BoxOfficeViewController") as! BoxOfficeViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
