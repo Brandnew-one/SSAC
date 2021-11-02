@@ -14,7 +14,7 @@ class TrendViewController: UIViewController {
     
     var movieData: [MovieModel] = [] {
         didSet {
-            print(movieData.count)
+            //print(movieData.count)
         }
     }
     var maxCount = 0
