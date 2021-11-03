@@ -62,14 +62,28 @@
                                                 <constraint firstItem="WhQ-Xy-RGE" firstAttribute="centerY" secondItem="bzO-Id-LbN" secondAttribute="centerY" id="r8I-FC-Brf"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgd-y9-q9s">
+                                            <rect key="frame" x="364" y="20" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="eQg-2Z-8mc"/>
+                                                <constraint firstAttribute="height" constant="30" id="ibh-Fr-ph4"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system"/>
+                                            <connections>
+                                                <action selector="sortButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Qs-NL-Oa4"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ixA-7u-dml" secondAttribute="trailing" constant="20" id="PAe-XT-Ite"/>
                                         <constraint firstItem="bzO-Id-LbN" firstAttribute="top" secondItem="ixA-7u-dml" secondAttribute="bottom" constant="10" id="QCe-z5-tiH"/>
                                         <constraint firstItem="bzO-Id-LbN" firstAttribute="centerX" secondItem="cSG-o6-FHC" secondAttribute="centerX" id="Td0-F3-hEV"/>
+                                        <constraint firstAttribute="trailing" secondItem="Lgd-y9-q9s" secondAttribute="trailing" constant="20" id="Tpl-p3-9Fy"/>
                                         <constraint firstItem="ixA-7u-dml" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cSG-o6-FHC" secondAttribute="leading" constant="20" id="aKy-fH-6a0"/>
                                         <constraint firstItem="bzO-Id-LbN" firstAttribute="width" secondItem="cSG-o6-FHC" secondAttribute="width" multiplier="0.9" id="bDJ-sI-i7O"/>
+                                        <constraint firstItem="Lgd-y9-q9s" firstAttribute="top" secondItem="cSG-o6-FHC" secondAttribute="top" constant="20" id="bYr-OP-Pee"/>
                                         <constraint firstItem="ixA-7u-dml" firstAttribute="centerX" secondItem="cSG-o6-FHC" secondAttribute="centerX" id="kHs-7y-XhN"/>
                                         <constraint firstItem="ixA-7u-dml" firstAttribute="top" secondItem="cSG-o6-FHC" secondAttribute="top" constant="20" id="tWF-25-Vo3"/>
                                         <constraint firstAttribute="bottom" secondItem="bzO-Id-LbN" secondAttribute="bottom" constant="10" id="wMn-Mm-2xR"/>
@@ -145,6 +159,7 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

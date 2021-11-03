@@ -18,6 +18,7 @@
 		AE4273F327310AB2004108B7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AE4273F227310AB2004108B7 /* Realm */; };
 		AE4273F527310AB2004108B7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE4273F427310AB2004108B7 /* RealmSwift */; };
 		AE4273F827310AF0004108B7 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4273F727310AF0004108B7 /* RealmModel.swift */; };
+		AECD88DF2732575E003239C3 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD88DE2732575E003239C3 /* Alert+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AE4273ED273108A7004108B7 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		AE4273EF273108FE004108B7 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		AE4273F727310AF0004108B7 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		AECD88DE2732575E003239C3 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				AE4273E727310495004108B7 /* Info.plist */,
 				AE4273ED273108A7004108B7 /* ShoppingListViewController.swift */,
 				AE4273EF273108FE004108B7 /* ShoppingListTableViewCell.swift */,
+				AECD88DE2732575E003239C3 /* Alert+Extension.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				AE4273F827310AF0004108B7 /* RealmModel.swift in Sources */,
 				AE4273EE273108A7004108B7 /* ShoppingListViewController.swift in Sources */,
 				AE4273DE27310492004108B7 /* ViewController.swift in Sources */,
+				AECD88DF2732575E003239C3 /* Alert+Extension.swift in Sources */,
 				AE4273DA27310492004108B7 /* AppDelegate.swift in Sources */,
 				AE4273DC27310492004108B7 /* SceneDelegate.swift in Sources */,
 			);

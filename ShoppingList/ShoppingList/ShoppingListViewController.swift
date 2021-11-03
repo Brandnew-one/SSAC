@@ -25,10 +25,10 @@ class ShoppingListViewController: UIViewController {
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
         
-        //print("Realm:",localRealm.configuration.fileURL!)
+        print("Realm:",localRealm.configuration.fileURL!)
         
         tasks = localRealm.objects(UserList.self)
-        print(tasks)
+        //print(tasks)
         
     }
     
@@ -71,6 +71,24 @@ class ShoppingListViewController: UIViewController {
         }
         tableView.reloadData()
     }
+    
+    @IBAction func sortButtonClicked(_ sender: UIButton) {
+        showActionSheet {
+            print("할일을 기준으로 정렬합니다.")
+            self.tasks = self.localRealm.objects(UserList.self).sorted(byKeyPath: "shoppingCheck", ascending: false)
+            self.tableView.reloadData()
+        } titleAction: {
+            print("제목을 기준으로 정렬합니다.")
+            self.tasks = self.localRealm.objects(UserList.self).sorted(byKeyPath: "shoppingTitle", ascending: true)
+            self.tableView.reloadData()
+        } starAction: {
+            print("즐겨찾기를 기준으로 정렬합니다.")
+            self.tasks = self.localRealm.objects(UserList.self).sorted(byKeyPath: "shoppingFavorite", ascending: false)
+            self.tableView.reloadData()
+        }
+
+    }
+    
 
 }
 
@@ -126,14 +144,17 @@ extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if indexPath.section == 0 {
-//            if editingStyle == .delete {
-//                tasks.remove(at: indexPath.row)
-//                tableView.reloadData()
-//            }
-//        }
-//    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let row = tasks[indexPath.row]
+        try! localRealm.write {
+            localRealm.delete(row)
+            tableView.reloadData()
+        }
+    }
     
 }
