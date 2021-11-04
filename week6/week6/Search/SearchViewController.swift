@@ -131,6 +131,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     //화면전환 -> 새로운 화면에서 수정할 수 있도록 수정해보기!
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        /*
         let taskToUpdate = tasks[indexPath.row]
         
         //1. 수정 - 레코드에 대한 값 수정
@@ -158,6 +159,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         try! localRealm.write {
             localRealm.create(UserDiary.self, value: ["_id" : taskToUpdate._id, "diaryTitle" : "이놈만"], update: .modified)
         }
+         */
+        
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        let row = tasks[indexPath.row]
+        
+        vc.titleData = row.diaryTitle
+        vc.dateData = "\(row.diaryDate)"
+        vc.contentData = row.diaryContent ?? "불러오지 못했습니다."
+        vc.imageData = loadImageFromDocumentDirectory(imageName: "\(row._id).png")
+        
+        navigationController?.pushViewController(vc, animated: true)
+        //present(vc, animated: true, completion: nil)
+        
         
     }
     

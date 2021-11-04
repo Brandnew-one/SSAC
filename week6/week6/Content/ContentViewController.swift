@@ -14,9 +14,12 @@ class ContentViewController: UIViewController {
     let localRealm = try! Realm()
 
     
-    @IBOutlet weak var contentImageView: UIImageView!
+    
+    @IBOutlet weak var contentImageView: UIButton!
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var contentLabel: UITextField!
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +27,11 @@ class ContentViewController: UIViewController {
         navigationItem.title = "일기작성"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
         
-        print("Realm is located at: ", localRealm.configuration.fileURL!)
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary //.camera 일 경우도 테스트해보기
+        //imagePicker.allowsEditing = true //default = false
         
+        print("Realm is located at: ", localRealm.configuration.fileURL!)
     }
     
     @objc
@@ -42,7 +48,7 @@ class ContentViewController: UIViewController {
         try! localRealm.write {
             localRealm.add(task)
             //PK 를 이미지의 이름으로 사용!
-            saveImageToDocumentDirectory(imageName: "\(task._id).png", image: contentImageView.image!)
+            saveImageToDocumentDirectory(imageName: "\(task._id).png", image: contentImageView.imageView?.image ?? UIImage(systemName: "star")!)
         }
         
     }
@@ -83,5 +89,35 @@ class ContentViewController: UIViewController {
             print("이미지 저장 실패")
         }
     }
+    
+    
+    @IBAction func imageButtonClicked(_ sender: UIButton) {
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
 
+}
+
+extension ContentViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //사진을 촬영하거나, 갤러리에서 사진을 선택한 직후에 실행 (필수)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print(#function)
+        
+        //1) 선택한 사진 가져오기 (편집 기능을 사용할거라면, originalImage 가 아닌 editImage 사용!)
+        // 편집이 혀용되지 않은 경우에 editImage 에는 접근할 수 없음
+        if let value = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // 2) 이미지뷰에 선택한 사진을 보여주기
+            contentImageView.setImage(value, for: .normal)
+        }
+        
+        //3) picker dismiss
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print(#function)
+    }
+    
 }

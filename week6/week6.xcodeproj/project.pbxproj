@@ -22,6 +22,7 @@
 		AE11C6DC2730C74B004C7C17 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE11C6DB2730C74B004C7C17 /* RealmSwift */; };
 		AE11C6DF2730C983004C7C17 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE11C6DE2730C983004C7C17 /* RealmModel.swift */; };
 		AE1E976127336DBB0049F029 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = AE1E976027336DBB0049F029 /* Zip */; };
+		AE3DFEA427343287000D8FF6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DFEA327343287000D8FF6 /* DetailViewController.swift */; };
 		AE5DAC30272F6F3D0091C496 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DAC2F272F6F3D0091C496 /* AppDelegate.swift */; };
 		AE5DAC32272F6F3D0091C496 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DAC31272F6F3D0091C496 /* SceneDelegate.swift */; };
 		AE5DAC34272F6F3D0091C496 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DAC33272F6F3D0091C496 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		AE0D2892272FD96300C6A1F2 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		AE0D2895272FD98900C6A1F2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AE11C6DE2730C983004C7C17 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		AE3DFEA327343287000D8FF6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AE5DAC2C272F6F3D0091C496 /* week6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5DAC2F272F6F3D0091C496 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5DAC31272F6F3D0091C496 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				AE0D2882272FB3BF00C6A1F2 /* Search.storyboard */,
 				AE0D288D272FCD7000C6A1F2 /* SearchViewController.swift */,
 				AE0D288F272FCFF500C6A1F2 /* SearchTableViewCell.swift */,
+				AE3DFEA327343287000D8FF6 /* DetailViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				AE0D2890272FCFF500C6A1F2 /* SearchTableViewCell.swift in Sources */,
 				AE11C6DF2730C983004C7C17 /* RealmModel.swift in Sources */,
 				AE0D2896272FD98900C6A1F2 /* SettingViewController.swift in Sources */,
+				AE3DFEA427343287000D8FF6 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

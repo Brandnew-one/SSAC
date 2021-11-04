@@ -16,10 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sini" translatesAutoresizingMaskIntoConstraints="NO" id="bLn-92-wTS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="358.5"/>
-                                <color key="backgroundColor" red="0.56999509079999999" green="0.78039215689999997" blue="0.61826911750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dmt-Qa-7ID">
                                 <rect key="frame" x="20" y="422.5" width="374" height="40"/>
                                 <constraints>
@@ -34,8 +30,16 @@
                                     <constraint firstAttribute="height" constant="50" id="7sl-Ji-4hl"/>
                                 </constraints>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFX-7T-qKS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="358.5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="sini"/>
+                                <connections>
+                                    <action selector="imageButtonClicked:" destination="4OD-B6-Acw" eventType="touchUpInside" id="fhJ-Ty-SOJ"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="puj-To-s5H">
-                                <rect key="frame" x="0.0" y="592.5" width="414" height="219.5"/>
+                                <rect key="frame" x="0.0" y="572.5" width="414" height="239.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -43,32 +47,31 @@
                         <viewLayoutGuide key="safeArea" id="Vhq-UE-CuU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bLn-92-wTS" firstAttribute="top" secondItem="Vhq-UE-CuU" secondAttribute="top" id="8fd-j9-znw"/>
+                            <constraint firstItem="aFX-7T-qKS" firstAttribute="leading" secondItem="Vhq-UE-CuU" secondAttribute="leading" id="8VW-nG-saV"/>
                             <constraint firstItem="Vhq-UE-CuU" firstAttribute="bottom" secondItem="puj-To-s5H" secondAttribute="bottom" constant="50" id="AHt-2b-8f4"/>
-                            <constraint firstItem="bLn-92-wTS" firstAttribute="leading" secondItem="Vhq-UE-CuU" secondAttribute="leading" id="CRC-ds-fUe"/>
-                            <constraint firstItem="Vhq-UE-CuU" firstAttribute="trailing" secondItem="bLn-92-wTS" secondAttribute="trailing" id="Hvo-rQ-o3L"/>
+                            <constraint firstItem="aFX-7T-qKS" firstAttribute="top" secondItem="Vhq-UE-CuU" secondAttribute="top" id="AoE-NH-9Bz"/>
+                            <constraint firstItem="puj-To-s5H" firstAttribute="top" secondItem="Ak9-u7-ild" secondAttribute="bottom" constant="20" id="Bt7-hw-UCZ"/>
+                            <constraint firstAttribute="trailing" secondItem="aFX-7T-qKS" secondAttribute="trailing" id="Exl-6u-D0C"/>
+                            <constraint firstItem="Dmt-Qa-7ID" firstAttribute="top" secondItem="aFX-7T-qKS" secondAttribute="bottom" constant="20" id="I9K-Gn-oqd"/>
                             <constraint firstItem="Dmt-Qa-7ID" firstAttribute="leading" secondItem="Vhq-UE-CuU" secondAttribute="leading" constant="20" id="J8v-4m-vp2"/>
-                            <constraint firstItem="puj-To-s5H" firstAttribute="top" secondItem="Ak9-u7-ild" secondAttribute="bottom" constant="40" id="JdI-1W-vrH"/>
                             <constraint firstItem="puj-To-s5H" firstAttribute="leading" secondItem="Vhq-UE-CuU" secondAttribute="leading" id="KM7-13-YIw"/>
                             <constraint firstItem="Ak9-u7-ild" firstAttribute="top" secondItem="Dmt-Qa-7ID" secondAttribute="bottom" constant="40" id="KpB-Iu-XgN"/>
                             <constraint firstItem="Ak9-u7-ild" firstAttribute="trailing" secondItem="Vhq-UE-CuU" secondAttribute="trailing" id="MYB-oF-lD5"/>
-                            <constraint firstItem="bLn-92-wTS" firstAttribute="height" secondItem="Yro-8i-qiE" secondAttribute="height" multiplier="0.4" id="TKM-Vg-QUE"/>
-                            <constraint firstItem="bLn-92-wTS" firstAttribute="top" secondItem="Vhq-UE-CuU" secondAttribute="top" id="aFt-rl-eDa"/>
                             <constraint firstItem="Vhq-UE-CuU" firstAttribute="trailing" secondItem="Dmt-Qa-7ID" secondAttribute="trailing" constant="20" id="c00-a6-gK2"/>
-                            <constraint firstItem="Dmt-Qa-7ID" firstAttribute="top" secondItem="bLn-92-wTS" secondAttribute="bottom" constant="20" id="dVU-aX-3Gp"/>
+                            <constraint firstItem="aFX-7T-qKS" firstAttribute="height" secondItem="Yro-8i-qiE" secondAttribute="height" multiplier="0.4" id="mBY-WT-OvX"/>
                             <constraint firstItem="Ak9-u7-ild" firstAttribute="leading" secondItem="Vhq-UE-CuU" secondAttribute="leading" id="qB6-0N-zY2"/>
                             <constraint firstItem="Vhq-UE-CuU" firstAttribute="trailing" secondItem="puj-To-s5H" secondAttribute="trailing" id="wxc-XS-nW5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentImageView" destination="bLn-92-wTS" id="CDN-ay-Auz"/>
+                        <outlet property="contentImageView" destination="aFX-7T-qKS" id="haP-XZ-eN3"/>
                         <outlet property="contentLabel" destination="puj-To-s5H" id="poP-wD-Kra"/>
                         <outlet property="titleLabel" destination="Dmt-Qa-7ID" id="W6z-qz-8Gf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jo-jD-web" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="96"/>
+            <point key="canvasLocation" x="382.60869565217394" y="95.758928571428569"/>
         </scene>
     </scenes>
     <resources>
