@@ -559,12 +559,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UgV-l3-pK5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="saA-tp-2mv" firstAttribute="leading" secondItem="UgV-l3-pK5" secondAttribute="leading" id="DNK-i2-k9F"/>
                             <constraint firstItem="UgV-l3-pK5" firstAttribute="trailing" secondItem="saA-tp-2mv" secondAttribute="trailing" id="aG8-tR-OtD"/>
                             <constraint firstItem="UgV-l3-pK5" firstAttribute="bottom" secondItem="saA-tp-2mv" secondAttribute="bottom" id="bFB-dU-Bnb"/>
                             <constraint firstItem="saA-tp-2mv" firstAttribute="top" secondItem="UgV-l3-pK5" secondAttribute="top" id="xng-UM-CGe"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4XV-gN-0d0" appends="YES" id="RR5-JK-64Y"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateTextField" destination="ghl-MX-crw" id="cer-Xx-JCo"/>
@@ -572,6 +576,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZG0-SR-5bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4XV-gN-0d0">
+                    <connections>
+                        <action selector="tapGestureClicked:" destination="F6W-0I-ZU0" id="5Zt-3M-29y"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="781.47321428571422"/>
         </scene>

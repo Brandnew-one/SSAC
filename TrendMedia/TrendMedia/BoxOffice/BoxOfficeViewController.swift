@@ -19,7 +19,7 @@ class BoxOfficeViewController: UIViewController {
     }
     
     let localRealm = try! Realm()
-    var tasks: Results<UserBoxOffice>!
+    var projects: Results<UserProject>!
     
     //어제 날짜 설정
     let calender = Calendar.current
@@ -37,44 +37,63 @@ class BoxOfficeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backButtonClicked))
         tableView.delegate = self
         tableView.dataSource = self
-        tasks = localRealm.objects(UserBoxOffice.self)
+        projects = localRealm.objects(UserProject.self)
         
         format.dateFormat = "yyyyMMdd"
         yesterdayDate = calender.date(byAdding: .day, value: -1, to: Date())
         yesterday = format.string(from: yesterdayDate!)
+        
         print(yesterday)
+        print("Realm is located at: ", localRealm.configuration.fileURL!)
+        dateTextField.keyboardType = .numberPad
         
-        if tasks.count == 0 {
-            fetchBoxOfficeData()
+        //앱이 처음 실행된 경우
+        if projects.count == 0 {
+            print("앱을 처음 실행시켰네요~!")
+            fetchBoxOfficeData3()
         }
         
-        else if tasks[0].yesterdayDate != yesterday {
-            for _ in 0...9 {
-                let taskDelete = tasks[0]
-                try! localRealm.write {
-                    localRealm.delete(taskDelete)
-                }
-            }
-            fetchBoxOfficeData()
+        //날짜가 바뀐 경우
+        else if projects.filter("yesterdayDate = %@",yesterday).isEmpty {
+            print("날짜가 변경되었네요~!")
+            fetchBoxOfficeData3()
         }
-        
-        //fetchBoxOfficeData()
     }
     
-    func fetchBoxOfficeData() {
-        
+//    func fetchBoxOfficeData() {
+//
+//        BoxOfficeManager.shared.fetchBoxOfficeData(date: yesterday) { code, json in
+//
+//            for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
+//                let rank = item["rank"].stringValue
+//                let movieName = item["movieNm"].stringValue
+//                let openDate = item["openDt"].stringValue
+//                //let data = BoxOffice(movieRank: rank, movieName: movieName, movieDate: openDate)
+//                //self.boxOfficeData.append(data)
+//                let task = UserBoxOffice(yesterdayDate: self.yesterday, movieRank: rank, movieTitle: movieName, movieDate: openDate)
+//                try! self.localRealm.write {
+//                    self.localRealm.add(task)
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
+//    }
+    
+    
+    func fetchBoxOfficeData3() {
+        print("네트워크 통신을 통해 받아옵니다~!")
         BoxOfficeManager.shared.fetchBoxOfficeData(date: yesterday) { code, json in
-            //print(json)
-            for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
-                let rank = item["rank"].stringValue
-                let movieName = item["movieNm"].stringValue
-                let openDate = item["openDt"].stringValue
-                //let data = BoxOffice(movieRank: rank, movieName: movieName, movieDate: openDate)
-                //self.boxOfficeData.append(data)
-                let task = UserBoxOffice(yesterdayDate: self.yesterday, movieRank: rank, movieTitle: movieName, movieDate: openDate)
-                try! self.localRealm.write {
-                    self.localRealm.add(task)
+            try! self.localRealm.write {
+                var taskList: [UserTask] = []
+                for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
+                    let rank = item["rank"].stringValue
+                    let movieName = item["movieNm"].stringValue
+                    let openDate = item["openDt"].stringValue
+                    let task = UserTask(movieRank: rank, movieTitle: movieName, movieDate: openDate)
+                    taskList.append(task)
                 }
+                let project = UserProject(yesterdayDate: self.yesterday, boxOffice: taskList)
+                self.localRealm.add(project)
             }
             self.tableView.reloadData()
         }
@@ -82,20 +101,24 @@ class BoxOfficeViewController: UIViewController {
     
     
     @IBAction func searchButtonClicked(_ sender: UIButton) {
-        //boxOfficeData.removeAll()
-        //date = dateTextField.text ?? "20041111"
-        //fetchBoxOfficeData()
+        yesterday = dateTextField.text ?? "20041111"
+        fetchBoxOfficeData3()
     }
     
     @IBAction func keyBoardClosed(_ sender: UITextField) {
     }
     
+    
+    @IBAction func tapGestureClicked(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
+    
     @objc
     func backButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
-    
-
 }
 
 
@@ -103,7 +126,7 @@ extension BoxOfficeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return boxOfficeData.count
-        return tasks.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -117,13 +140,14 @@ extension BoxOfficeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         //let row = boxOfficeData[indexPath.row]
-        let row = tasks[indexPath.row]
-        cell.rankLabel.text = row.movieRank
-        cell.titleLabel.text = row.movieTitle
-        cell.dateLabel.text = row.movieDate
+        let result = projects.filter("yesterdayDate = %@",yesterday).first?.boxOffice[indexPath.row]
+        //let result = localRealm.objects(UserProject.self).filter("yesterdayDate == \(yesterday)").first?.boxOffice[indexPath.row]
+        
+        cell.rankLabel.text = result?.movieRank
+        cell.titleLabel.text = result?.movieTitle
+        cell.dateLabel.text = result?.movieDate
         
         return cell
     }
-    
     
 }
