@@ -54,7 +54,7 @@ class BoxOfficeViewController: UIViewController {
         }
         
         //날짜가 바뀐 경우
-        else if projects.filter("yesterdayDate = %@",yesterday).isEmpty {
+        else if projects.filter("yesterdayDate == %@",yesterday).isEmpty {
             print("날짜가 변경되었네요~!")
             fetchBoxOfficeData3()
         }
@@ -140,7 +140,7 @@ extension BoxOfficeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         //let row = boxOfficeData[indexPath.row]
-        let result = projects.filter("yesterdayDate = %@",yesterday).first?.boxOffice[indexPath.row]
+        let result = projects.filter("yesterdayDate == %@",yesterday).first?.boxOffice[indexPath.row]
         //let result = localRealm.objects(UserProject.self).filter("yesterdayDate == \(yesterday)").first?.boxOffice[indexPath.row]
         
         cell.rankLabel.text = result?.movieRank
