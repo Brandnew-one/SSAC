@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ESI-4Q-qmN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shopping List View Controller-->
+        <!--홈-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ShoppingListViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,6 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="AKH-qj-zHh"/>
                     <connections>
                         <outlet property="shoppingTextField" destination="g8i-Ko-Wgc" id="dul-Hz-e06"/>
                         <outlet property="tableView" destination="h5c-o5-zKw" id="a4L-r7-CBZ"/>
@@ -153,12 +154,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1099" y="94"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="SLW-eN-NXW">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" id="vcn-tT-6bk" customClass="SettingViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="beh-Yb-rqV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ft0-HB-3jc">
+                                <rect key="frame" x="20" y="382.5" width="374" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="백업하기"/>
+                                <connections>
+                                    <action selector="backupButtonClicked:" destination="vcn-tT-6bk" eventType="touchUpInside" id="poU-ZJ-v7S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAv-uC-6GG">
+                                <rect key="frame" x="20" y="482.5" width="374" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="복구하기"/>
+                                <connections>
+                                    <action selector="restoreButtonClicked:" destination="vcn-tT-6bk" eventType="touchUpInside" id="1zh-uf-rqd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JLC-OQ-0RE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gAv-uC-6GG" firstAttribute="centerY" secondItem="beh-Yb-rqV" secondAttribute="centerY" constant="50" id="Pou-Hb-Hke"/>
+                            <constraint firstItem="Ft0-HB-3jc" firstAttribute="centerX" secondItem="beh-Yb-rqV" secondAttribute="centerX" id="RBS-ET-5Sr"/>
+                            <constraint firstItem="Ft0-HB-3jc" firstAttribute="centerY" secondItem="beh-Yb-rqV" secondAttribute="centerY" constant="-50" id="Yl5-V9-Lix"/>
+                            <constraint firstItem="JLC-OQ-0RE" firstAttribute="trailing" secondItem="Ft0-HB-3jc" secondAttribute="trailing" constant="20" id="mOq-nM-byo"/>
+                            <constraint firstItem="gAv-uC-6GG" firstAttribute="leading" secondItem="JLC-OQ-0RE" secondAttribute="leading" constant="20" id="ppi-45-9Kd"/>
+                            <constraint firstItem="Ft0-HB-3jc" firstAttribute="leading" secondItem="JLC-OQ-0RE" secondAttribute="leading" constant="20" id="uL6-4a-xvS"/>
+                            <constraint firstItem="JLC-OQ-0RE" firstAttribute="trailing" secondItem="gAv-uC-6GG" secondAttribute="trailing" constant="20" id="upy-bL-fZl"/>
+                            <constraint firstItem="gAv-uC-6GG" firstAttribute="centerX" secondItem="beh-Yb-rqV" secondAttribute="centerX" id="yez-ep-4C4"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="hlF-a4-e08"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7IX-io-3ZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="825"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="f96-LO-UIy">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ESI-4Q-qmN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8T4-dA-ltF">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="l1T-aO-PmZ"/>
+                        <segue destination="vcn-tT-6bk" kind="relationship" relationship="viewControllers" id="VhX-Ic-rJc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Syc-mk-Mhd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.85507246376812" y="93.75"/>
         </scene>
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

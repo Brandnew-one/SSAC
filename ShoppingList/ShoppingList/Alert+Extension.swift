@@ -36,4 +36,16 @@ extension UIViewController {
         }
     }
     
+    func showAlert(okAction: @escaping () -> ()) {
+        let alert = UIAlertController(title: "휴대폰을 종료", message: "휴대폰을 종료하겠습니다.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) { _ in
+            print("백업을 완료하면 앱을 재실행합니다.")
+            okAction()
+        }
+        
+        alert.addAction(ok)
+        self.present(alert,animated: true) {
+            print("얼럿이 떴습니다~!")
+        }
+    }
 }
