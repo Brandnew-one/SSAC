@@ -160,18 +160,18 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="bonusNumberLabel" destination="r7I-i7-Cuv" id="HKn-3j-CTi"/>
                         <outlet property="dayLabel" destination="F0p-DZ-0Q6" id="HVD-5Z-JtI"/>
-                        <outlet property="fifthNumberLabel" destination="CtJ-Tk-yFg" id="boX-f4-EPO"/>
-                        <outlet property="firstNumberLabel" destination="ZSB-lB-S7F" id="j4G-MG-Yw6"/>
-                        <outlet property="fourthNumberLabel" destination="tvJ-1c-MJv" id="MFa-Pi-alM"/>
                         <outlet property="lotteryPickerView" destination="r6c-da-Wve" id="hyQ-5m-B3c"/>
                         <outlet property="lotteryTextField" destination="vbh-Qo-0jv" id="LSX-ya-WdQ"/>
                         <outlet property="plusLabel" destination="7DO-Vg-Ssc" id="if4-oG-2D5"/>
                         <outlet property="resultLabel" destination="e9U-9e-O9I" id="3cx-po-7Hz"/>
-                        <outlet property="secondNumberLabel" destination="SZq-Hc-QpH" id="sEg-fS-SR9"/>
-                        <outlet property="sixthNumberLabel" destination="PQQ-cV-ek9" id="vq5-cj-fK8"/>
-                        <outlet property="thirdNumberLabel" destination="hyE-CX-DkK" id="1yT-1e-7r4"/>
+                        <outletCollection property="lotteryNumber" destination="ZSB-lB-S7F" collectionClass="NSMutableArray" id="Hpk-JB-VZ1"/>
+                        <outletCollection property="lotteryNumber" destination="SZq-Hc-QpH" collectionClass="NSMutableArray" id="CAS-FI-CuJ"/>
+                        <outletCollection property="lotteryNumber" destination="hyE-CX-DkK" collectionClass="NSMutableArray" id="fgZ-Of-b8O"/>
+                        <outletCollection property="lotteryNumber" destination="tvJ-1c-MJv" collectionClass="NSMutableArray" id="geB-7T-nTS"/>
+                        <outletCollection property="lotteryNumber" destination="CtJ-Tk-yFg" collectionClass="NSMutableArray" id="oh6-YP-g7d"/>
+                        <outletCollection property="lotteryNumber" destination="PQQ-cV-ek9" collectionClass="NSMutableArray" id="6e2-RT-8HA"/>
+                        <outletCollection property="lotteryNumber" destination="r7I-i7-Cuv" collectionClass="NSMutableArray" id="iNr-AD-VaM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

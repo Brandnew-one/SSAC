@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-var lottery: [Int] = []
+
 
 // <추가적으로 구현해야 하는 것>
 // 1 ) 올바르지 않은 데이터들에 대한 얼럿 설정
@@ -18,55 +18,38 @@ var lottery: [Int] = []
 
 class LotteryViewController: UIViewController {
     
+    var lottery: [Int] = []
     var todayNumber = 1
+    
+    @IBOutlet var lotteryNumber: [UILabel]!
+    
         
     @IBOutlet weak var lotteryPickerView: UIPickerView!
     @IBOutlet weak var lotteryTextField: UITextField!
     
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
-    
-    @IBOutlet weak var firstNumberLabel: UILabel!
-    @IBOutlet weak var secondNumberLabel: UILabel!
-    @IBOutlet weak var thirdNumberLabel: UILabel!
-    @IBOutlet weak var fourthNumberLabel: UILabel!
-    @IBOutlet weak var fifthNumberLabel: UILabel!
-    @IBOutlet weak var sixthNumberLabel: UILabel!
     @IBOutlet weak var plusLabel: UILabel!
-    @IBOutlet weak var bonusNumberLabel: UILabel!
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         for i in 1...987 {
             lottery.append(i)
         }
+                
+        lotteryNumber.forEach { label in
+            label.clipsToBounds = true
+            label.layer.cornerRadius = 20
+        }
         
-        super.viewDidLoad()
-        
-        //Label 둥글게 만들기 위한 설정 -> 다음부터 Outlet Collectino 이용!
-        firstNumberLabel.clipsToBounds = true
-        firstNumberLabel.layer.cornerRadius = 20
-        secondNumberLabel.clipsToBounds = true
-        secondNumberLabel.layer.cornerRadius = 20
-        thirdNumberLabel.clipsToBounds = true
-        thirdNumberLabel.layer.cornerRadius = 20
-        fourthNumberLabel.clipsToBounds = true
-        fourthNumberLabel.layer.cornerRadius = 20
-        fifthNumberLabel.clipsToBounds = true
-        fifthNumberLabel.layer.cornerRadius = 20
-        sixthNumberLabel.clipsToBounds = true
-        sixthNumberLabel.layer.cornerRadius = 20
         plusLabel.clipsToBounds = true
         plusLabel.layer.cornerRadius = 20
-        bonusNumberLabel.clipsToBounds = true
-        bonusNumberLabel.layer.cornerRadius = 20
         lotteryTextField.keyboardType = .numberPad
-        
         lotteryPickerView.delegate = self
         lotteryPickerView.dataSource = self
     }
-    
     
     func getCurrentNumber(index: Int) {
         
@@ -80,13 +63,13 @@ class LotteryViewController: UIViewController {
             case .success(let value):
                 let json = JSON(value)
                 //print("JSON: \(json)")
-                self.firstNumberLabel.text = "\(json["drwtNo1"].intValue)"
-                self.secondNumberLabel.text = "\(json["drwtNo2"].intValue)"
-                self.thirdNumberLabel.text = "\(json["drwtNo3"].intValue)"
-                self.fourthNumberLabel.text = "\(json["drwtNo4"].intValue)"
-                self.fifthNumberLabel.text = "\(json["drwtNo5"].intValue)"
-                self.sixthNumberLabel.text = "\(json["drwtNo6"].intValue)"
-                self.bonusNumberLabel.text = "\(json["bnusNo"].intValue)"
+                self.lotteryNumber[0].text = "\(json["drwtNo1"].intValue)"
+                self.lotteryNumber[1].text = "\(json["drwtNo2"].intValue)"
+                self.lotteryNumber[2].text = "\(json["drwtNo3"].intValue)"
+                self.lotteryNumber[3].text = "\(json["drwtNo4"].intValue)"
+                self.lotteryNumber[4].text = "\(json["drwtNo5"].intValue)"
+                self.lotteryNumber[5].text = "\(json["drwtNo6"].intValue)"
+                self.lotteryNumber[6].text = "\(json["bnusNo"].intValue)"
                 self.dayLabel.text = "\(json["drwNoDate"].stringValue) 추첨"
                 
                 
