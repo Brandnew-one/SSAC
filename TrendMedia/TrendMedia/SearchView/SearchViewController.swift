@@ -33,19 +33,23 @@ class SearchViewController: UIViewController {
     }
     
     func fetchMovieSearchData() {
-        NaverAPIManager.shared.fetchMovieSearchData(query: query, startPage: startPage) { code, json in
-            
-            self.totalCount = json["total"].intValue
-            
-            for item in json["items"].arrayValue {
-                let title = item["title"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
-                let subTitle = item["subtitle"].stringValue
-                let image = item["image"].stringValue
-                let userRating = item["userRating"].stringValue
-                let data = MovieSearch(titleData: title, subtitleData: subTitle, posterData: image, userRatingData: userRating)
-                self.movieData.append(data)
+        DispatchQueue.global().async {
+            NaverAPIManager.shared.fetchMovieSearchData(query: self.query, startPage: self.startPage) { code, json in
+                
+                self.totalCount = json["total"].intValue
+                
+                for item in json["items"].arrayValue {
+                    let title = item["title"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                    let subTitle = item["subtitle"].stringValue
+                    let image = item["image"].stringValue
+                    let userRating = item["userRating"].stringValue
+                    let data = MovieSearch(titleData: title, subtitleData: subTitle, posterData: image, userRatingData: userRating)
+                    self.movieData.append(data)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
-            self.tableView.reloadData()
         }
     }
      

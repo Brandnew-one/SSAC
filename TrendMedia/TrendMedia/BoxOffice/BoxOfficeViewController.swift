@@ -82,20 +82,24 @@ class BoxOfficeViewController: UIViewController {
     
     func fetchBoxOfficeData3() {
         print("네트워크 통신을 통해 받아옵니다~!")
-        BoxOfficeManager.shared.fetchBoxOfficeData(date: yesterday) { code, json in
-            try! self.localRealm.write {
-                var taskList: [UserTask] = []
-                for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
-                    let rank = item["rank"].stringValue
-                    let movieName = item["movieNm"].stringValue
-                    let openDate = item["openDt"].stringValue
-                    let task = UserTask(movieRank: rank, movieTitle: movieName, movieDate: openDate)
-                    taskList.append(task)
+        DispatchQueue.global().async {
+            BoxOfficeManager.shared.fetchBoxOfficeData(date: self.yesterday) { code, json in
+                try! self.localRealm.write {
+                    var taskList: [UserTask] = []
+                    for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
+                        let rank = item["rank"].stringValue
+                        let movieName = item["movieNm"].stringValue
+                        let openDate = item["openDt"].stringValue
+                        let task = UserTask(movieRank: rank, movieTitle: movieName, movieDate: openDate)
+                        taskList.append(task)
+                    }
+                    let project = UserProject(yesterdayDate: self.yesterday, boxOffice: taskList)
+                    self.localRealm.add(project)
                 }
-                let project = UserProject(yesterdayDate: self.yesterday, boxOffice: taskList)
-                self.localRealm.add(project)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
-            self.tableView.reloadData()
         }
     }
     

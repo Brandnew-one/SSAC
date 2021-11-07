@@ -8,12 +8,12 @@
 import Foundation
 
 struct MovieModel {
-    var mediaType: String
-    var titleData: String
-    var subtitle: String
-    var imageData: String
-    var userRatingData: String
-    var releaseDate: String
-    var movieID: String
-    var movieOverView: String
+    var mediaType: String = ""
+    var titleData: String = ""
+    var subtitle: String = ""
+    var imageData: String = ""
+    var userRatingData: String = ""
+    var releaseDate: String = ""
+    var movieID: String = ""
+    var movieOverView: String = ""
 }

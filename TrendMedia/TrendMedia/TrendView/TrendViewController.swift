@@ -31,24 +31,28 @@ class TrendViewController: UIViewController {
     }
     
     func fetchMovieData() {
-        TdmbManager.shared.fetchWeatherData(page: startPage) { code, json in
-            //print(json)
-            self.maxCount = json["total_results"].intValue
-            for item in json["results"].arrayValue {
-                let title = item["original_title"].stringValue
-                let image = item["poster_path"].stringValue
-                let userRating = "\(item["vote_average"].doubleValue)"
-                let relaseDate = item["release_date"].stringValue
-                let mediaType = item["original_title"].stringValue
-                let subTitle = item["original_title"].stringValue
-                let movieID = "\(item["id"].intValue)"
-                let movieOverView = item["overview"].stringValue
-                
-                let data = MovieModel(mediaType: mediaType, titleData: title, subtitle: subTitle, imageData: image, userRatingData: userRating, releaseDate: relaseDate, movieID: movieID, movieOverView: movieOverView)
-                
-                self.movieData.append(data)
+        DispatchQueue.global().async {
+            TdmbManager.shared.fetchWeatherData(page: self.startPage) { code, json in
+                //print(json)
+                self.maxCount = json["total_results"].intValue
+                for item in json["results"].arrayValue {
+                    let title = item["original_title"].stringValue
+                    let image = item["poster_path"].stringValue
+                    let userRating = "\(item["vote_average"].doubleValue)"
+                    let relaseDate = item["release_date"].stringValue
+                    let mediaType = item["original_title"].stringValue
+                    let subTitle = item["original_title"].stringValue
+                    let movieID = "\(item["id"].intValue)"
+                    let movieOverView = item["overview"].stringValue
+                    
+                    let data = MovieModel(mediaType: mediaType, titleData: title, subtitle: subTitle, imageData: image, userRatingData: userRating, releaseDate: relaseDate, movieID: movieID, movieOverView: movieOverView)
+                    
+                    self.movieData.append(data)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
-            self.tableView.reloadData()
         }
     }
     
@@ -136,10 +140,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource, UITab
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
         let row = movieData[indexPath.row]
-        vc.movieID = row.movieID
-        vc.movieImage = row.imageData
-        vc.movieName = row.titleData
-        vc.movieOverView = row.movieOverView
+        vc.movieData = row
         
         navigationController?.pushViewController(vc, animated: true)
         navigationItem.backButtonTitle = "뒤로"

@@ -10,11 +10,9 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var castArray: [Cast] = []
-    var movieID: String = ""
-    var movieName: String = ""
-    var movieImage: String = ""
-    var movieOverView: String = ""
+    var movieData: MovieModel = MovieModel()
     var overviewTrigger: Bool = false
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -30,8 +28,8 @@ class DetailViewController: UIViewController {
         navigationItem.title = "출연/제작"
         
         // Section Header 설정!
-        movieNameLabel.text = movieName
-        if let url = URL(string: "https://image.tmdb.org/t/p/original/" + movieImage) {
+        movieNameLabel.text = movieData.titleData
+        if let url = URL(string: "https://image.tmdb.org/t/p/original/" + movieData.imageData) {
             posterImageView.kf.setImage(with: url)
         }
         else {
@@ -44,15 +42,19 @@ class DetailViewController: UIViewController {
     }
     
     func fetchMovieActorData() {
-        TdmbCreditManager.shared.fetchWeatherData(movieID: movieID) { code, json in
-            for item in json["cast"].arrayValue {
-                let name = item["name"].stringValue
-                let chracter = item["character"].stringValue
-                let image = item["profile_path"].stringValue
-                let data = Cast(actorName: name, actorImage: image, character: chracter)
-                self.castArray.append(data)
+        DispatchQueue.global().async {
+            TdmbCreditManager.shared.fetchWeatherData(movieID: self.movieData.movieID) { code, json in
+                for item in json["cast"].arrayValue {
+                    let name = item["name"].stringValue
+                    let chracter = item["character"].stringValue
+                    let image = item["profile_path"].stringValue
+                    let data = Cast(actorName: name, actorImage: image, character: chracter)
+                    self.castArray.append(data)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
-            self.tableView.reloadData()
         }
     }
     
@@ -111,7 +113,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.overViewLabel.text = movieOverView
+            cell.overViewLabel.text = movieData.movieOverView
             if overviewTrigger {
                 cell.overViewLabel.numberOfLines = 0
             }
