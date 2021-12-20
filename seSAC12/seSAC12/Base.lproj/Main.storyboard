@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="seSAC12" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0u-XS-7gf" customClass="SquareBoxView" customModule="seSAC12" customModuleProvider="target">
+                                <rect key="frame" x="16" y="64" width="116.5" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="K0u-XS-7gf" secondAttribute="height" multiplier="5:3" id="RkV-hX-nYN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-t8-Q8a" customClass="SquareBoxView" customModule="seSAC12" customModuleProvider="target">
+                                <rect key="frame" x="281.5" y="64" width="116.5" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jAk-t8-Q8a" secondAttribute="height" multiplier="5:3" id="mYq-4w-SFq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqP-EB-YAT" customClass="SquareBoxView" customModule="seSAC12" customModuleProvider="target">
+                                <rect key="frame" x="148.5" y="64" width="117" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YqP-EB-YAT" secondAttribute="height" multiplier="5:3" id="Fzh-pt-a3r"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ1-Wk-qDt">
+                                <rect key="frame" x="16" y="188" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fQ-qx-u7O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTp-L2-OEA" customClass="MainActivateButton" customModule="seSAC12" customModuleProvider="target">
+                                <rect key="frame" x="35" y="412" width="332" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.20392156859999999" green="0.74509803919999995" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K0u-XS-7gf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="61o-im-LfX"/>
+                            <constraint firstItem="YqP-EB-YAT" firstAttribute="width" secondItem="K0u-XS-7gf" secondAttribute="width" id="8Qv-72-MgC"/>
+                            <constraint firstItem="YqP-EB-YAT" firstAttribute="leading" secondItem="K0u-XS-7gf" secondAttribute="trailing" constant="16" id="Bga-h0-ewy"/>
+                            <constraint firstItem="K0u-XS-7gf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="CXS-tK-BLe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jAk-t8-Q8a" secondAttribute="trailing" constant="16" id="JBg-7f-Uhn"/>
+                            <constraint firstItem="YqP-EB-YAT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="OtS-v7-2AD"/>
+                            <constraint firstItem="jAk-t8-Q8a" firstAttribute="width" secondItem="K0u-XS-7gf" secondAttribute="width" id="XGk-jw-ZAe"/>
+                            <constraint firstItem="jAk-t8-Q8a" firstAttribute="leading" secondItem="YqP-EB-YAT" secondAttribute="trailing" constant="16" id="di5-3u-Hca"/>
+                            <constraint firstItem="jAk-t8-Q8a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="w0F-Co-oLI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="favoriteMenuView" destination="K0u-XS-7gf" id="Zcl-xK-BEe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="WTp-L2-OEA">
+            <size key="intrinsicContentSize" width="67" height="31"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
