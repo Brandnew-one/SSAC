@@ -1,5 +1,6 @@
 # ignore all API/Constants  files
 **/API/Constants.swift
+**/GoogleService-Info.plist
 
 # General
 .DS_Store
