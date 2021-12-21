@@ -1,0 +1,6 @@
+framework module Pods_ViewTest {
+  umbrella header "Pods-ViewTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
