@@ -1,7 +1,5 @@
 //
-//  API.swift
-//  TMDBtv
-//
+//  TVShowModel.swift
 //  Created by 신상원 on 2021/12/21.
 //
 

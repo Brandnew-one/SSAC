@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TVShowViewController.swift
 //  TMDBtv
 //
 //  Created by 신상원 on 2021/12/21.
@@ -8,19 +8,16 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class TVShowViewController: UIViewController {
     
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    var apiService = APIService()
-    var tvData: TVShow?
-    
+    var searchBar = UISearchBar()
+    var tvshowViewModel = TVShowViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        setupView()
+        setupConstraints()
         
         collectionView.backgroundColor = .black
         collectionView.delegate = self
@@ -28,11 +25,29 @@ class ViewController: UIViewController {
         collectionView.register(TVCollectionViewCell.self, forCellWithReuseIdentifier: TVCollectionViewCell.identifier)
         setFlowLayout()
         
-        apiService.requestCast { tv in
-            self.tvData = tv
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+        tvshowViewModel.fetchTrendingWeek()
+        tvshowViewModel.tvTrendingWeek.bind { trending in
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func setupView() {
+        view.addSubview(searchBar)
+        searchBar.backgroundColor = .systemGray
+        view.addSubview(collectionView)
+    }
+    
+    func setupConstraints() {
+        searchBar.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(44)
+        }
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -51,11 +66,11 @@ class ViewController: UIViewController {
     
 }
 
-//MVVM 신경쓰지 말고 일단 구현에 중점을 두고 만들어보자
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//MVVM
+extension TVShowViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tvData?.results.count ?? 0
+        return tvshowViewModel.numberOfItemsInSection
     }
     
     
@@ -63,17 +78,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TVCollectionViewCell.identifier, for: indexPath) as? TVCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let row = tvData?.results[indexPath.item]
-        let url = URL(string: "https://image.tmdb.org/t/p/original" + row!.posterPath)
-//        let data = try? Data(contentsOf: url!)
-//        cell.imageView.image = UIImage(data: data!)
+        let row = tvshowViewModel.cellForItemAt(indexPath: indexPath)
+        let url = URL(string: "https://image.tmdb.org/t/p/original" + row.posterPath)
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!)
             DispatchQueue.main.async {
                 cell.imageView.image = UIImage(data: data!)
             }
         }
-        
         return cell
+    }
+}
+
+extension TVShowViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
     }
 }
