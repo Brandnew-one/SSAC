@@ -11,13 +11,17 @@ import SnapKit
 class TVShowViewController: UIViewController {
     
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    var searchBar = UISearchBar()
+    var searchController = UISearchController(searchResultsController: TVSearchViewController())
     var tvshowViewModel = TVShowViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        
+        self.navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self // 다른 view 에서 결과를 보여줄 수 있도록 설정
+        searchController.searchBar.delegate = self // 서치바 눌렀을 떄만 통신 되도록 설정
         
         collectionView.backgroundColor = .black
         collectionView.delegate = self
@@ -32,21 +36,13 @@ class TVShowViewController: UIViewController {
     }
     
     func setupView() {
-        view.addSubview(searchBar)
-        searchBar.backgroundColor = .systemGray
         view.addSubview(collectionView)
     }
     
     func setupConstraints() {
-        searchBar.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(44)
-        }
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(searchBar.snp.bottom)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -90,9 +86,23 @@ extension TVShowViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+extension TVShowViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+//        print(#function)
+    }
+}
+
 extension TVShowViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        print(searchController.searchBar.text!)
+        if let resultsController = searchController.searchResultsController as? TVSearchViewController {
+            resultsController.tvSearchViewModel.fetchTvSearch(query: searchController.searchBar.text!)
+            
+            resultsController.tvSearchViewModel.tvSearch.bind { search in
+                resultsController.collectionView.reloadData()
+            }
+        }
     }
 }

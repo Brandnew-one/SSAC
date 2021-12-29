@@ -11,6 +11,7 @@
 		AE3FE8D1277C2B50006D9580 /* TVShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FE8D0277C2B50006D9580 /* TVShowViewModel.swift */; };
 		AE3FE8D4277C39DC006D9580 /* TVSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FE8D3277C39DC006D9580 /* TVSearchModel.swift */; };
 		AE3FE8D6277C402E006D9580 /* TVSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FE8D5277C402E006D9580 /* TVSearchViewController.swift */; };
+		AE3FE8D8277C48C5006D9580 /* TVSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FE8D7277C48C5006D9580 /* TVSearchViewModel.swift */; };
 		AEF137992771A68F00936A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF137982771A68F00936A49 /* AppDelegate.swift */; };
 		AEF1379B2771A68F00936A49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1379A2771A68F00936A49 /* SceneDelegate.swift */; };
 		AEF1379D2771A68F00936A49 /* TVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1379C2771A68F00936A49 /* TVShowViewController.swift */; };
@@ -28,6 +29,7 @@
 		AE3FE8D0277C2B50006D9580 /* TVShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModel.swift; sourceTree = "<group>"; };
 		AE3FE8D3277C39DC006D9580 /* TVSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSearchModel.swift; sourceTree = "<group>"; };
 		AE3FE8D5277C402E006D9580 /* TVSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSearchViewController.swift; sourceTree = "<group>"; };
+		AE3FE8D7277C48C5006D9580 /* TVSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSearchViewModel.swift; sourceTree = "<group>"; };
 		AEF137952771A68F00936A49 /* TMDBtv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBtv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF137982771A68F00936A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEF1379A2771A68F00936A49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3FE8D3277C39DC006D9580 /* TVSearchModel.swift */,
+				AE3FE8D7277C48C5006D9580 /* TVSearchViewModel.swift */,
 				AE3FE8D5277C402E006D9580 /* TVSearchViewController.swift */,
 			);
 			path = TVSearch;
@@ -184,6 +187,7 @@
 			files = (
 				AE3FE8CF277C2B21006D9580 /* Observable.swift in Sources */,
 				AE3FE8D4277C39DC006D9580 /* TVSearchModel.swift in Sources */,
+				AE3FE8D8277C48C5006D9580 /* TVSearchViewModel.swift in Sources */,
 				AEF1379D2771A68F00936A49 /* TVShowViewController.swift in Sources */,
 				AEF137B6277215B800936A49 /* APIKey.swift in Sources */,
 				AE3FE8D6277C402E006D9580 /* TVSearchViewController.swift in Sources */,
