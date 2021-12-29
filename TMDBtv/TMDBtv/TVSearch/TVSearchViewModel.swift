@@ -13,7 +13,7 @@ class TVSearchViewModel {
     
     func fetchTvSearch(query: String) {
         APIService.requestDetail(query) { search in
-            print(search)
+//            print(search)
             guard let search = search else {
                 print("Fetch ERROR")
                 return

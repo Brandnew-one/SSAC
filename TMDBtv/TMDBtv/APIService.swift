@@ -40,8 +40,10 @@ class APIService {
         let host = "api.themoviedb.org"
         let path = "/3/search/tv"
         
-        let key = "169881821286bdcac4cce29506f8782a"
-        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        let key = "169881821286bdcac4cce29506f8782a"
+        let key = APIKey.tmdbSearchKey
+//        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let query = text
         let language = "ko-KR"
         let page = "1"
         
@@ -68,9 +70,9 @@ class APIService {
                 }
                 
                 if let data = data, let tvData = try? JSONDecoder().decode(TVSearch.self, from: data) {
-                    print(tvData.results.first)
-                    print(tvData.page)
-                    print(tvData.totalPages)
+//                    print(tvData.results.first)
+//                    print(tvData.page)
+//                    print(tvData.totalPages)
                     completion(tvData)
                     return
                 }
