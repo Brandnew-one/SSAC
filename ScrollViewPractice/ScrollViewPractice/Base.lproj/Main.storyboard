@@ -160,21 +160,21 @@
             <objects>
                 <viewController id="FaM-2g-J5X" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WKh-CL-Gh2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-WD-dhH">
-                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="1386" width="414" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="zCt-oz-WMj"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BD4-sy-fYT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1342"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-Ni-5eP" userLabel="ContainverView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="886.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="893.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-eo-jez" userLabel="imageContainer">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -184,7 +184,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyJ-7w-Ih2">
-                                                <rect key="frame" x="8" y="158" width="398" height="710.5"/>
+                                                <rect key="frame" x="8" y="165" width="398" height="710.5"/>
                                                 <string key="text">스포티비뉴스=박대성 기자] 토트넘이 프랑크 케시에(25, AC밀란)를 진심 원하고 있다. 다음 주에 공식적인 접촉을 한다. 토트넘 고위층은 이미 케시에 측 대리인과 이야기하고 있다.
 
 영국 매체 '익스프레스'는 27일(한국시간) "토트넘이 일찍이 케시에 영입을 마무리하려고 한다. 안토니오 콘테 감독은 1월 겨울 이적 시장에 먼저 영입하고 싶은 선수로 케시에를 점찍었다. 맨체스터 유나이티드와 아스널 관심을 받고 있지만, 토트넘이 접촉한 상황"이라고 알렸다.
@@ -204,8 +204,8 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="VyJ-7w-Ih2" firstAttribute="top" secondItem="Lla-eo-jez" secondAttribute="bottom" constant="8" id="Dib-gP-b4B"/>
                                             <constraint firstItem="Lla-eo-jez" firstAttribute="top" secondItem="6Kh-Ni-5eP" secondAttribute="top" id="Qbw-vr-swB"/>
+                                            <constraint firstItem="VyJ-7w-Ih2" firstAttribute="top" secondItem="6Kh-Ni-5eP" secondAttribute="top" constant="165" id="SZg-k1-dTd"/>
                                             <constraint firstItem="VyJ-7w-Ih2" firstAttribute="leading" secondItem="6Kh-Ni-5eP" secondAttribute="leading" constant="8" id="eKn-4U-owi"/>
                                             <constraint firstAttribute="trailing" secondItem="VyJ-7w-Ih2" secondAttribute="trailing" constant="8" id="lmC-W5-Ftn"/>
                                             <constraint firstAttribute="bottom" secondItem="VyJ-7w-Ih2" secondAttribute="bottom" constant="18" id="nfD-0k-e0d"/>
@@ -244,6 +244,7 @@
                             <constraint firstItem="002-Wy-DPw" firstAttribute="trailing" secondItem="BD4-sy-fYT" secondAttribute="trailing" id="wG1-XZ-evc"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1500"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zS2-Rc-uSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
