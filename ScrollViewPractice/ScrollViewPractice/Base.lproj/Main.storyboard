@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FaM-2g-J5X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yZf-2M-xje">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -250,11 +250,154 @@
             </objects>
             <point key="canvasLocation" x="879.71014492753625" y="115.84821428571428"/>
         </scene>
+        <!--Scroll View Controller-->
+        <scene sceneID="9cw-dO-HLy">
+            <objects>
+                <viewController id="yZf-2M-xje" customClass="ScrollViewController" customModule="ScrollViewPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MBM-7t-U1T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkT-hG-f1f" userLabel="BottomView">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="3ML-3m-znQ"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krn-Jj-S0f">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKn-xC-hz1" userLabel="ContainerView">
+                                        <rect key="frame" x="0.0" y="1" width="414" height="1165"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etj-TQ-PhL" userLabel="ImageContainerView">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="5z7-7X-iCC"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvx-nH-Igf" userLabel="DescriptionView">
+                                                <rect key="frame" x="50" y="250" width="314" height="150.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5u-1g-BCR">
+                                                        <rect key="frame" x="15" y="15" width="284" height="81.5"/>
+                                                        <string key="text">스포티비뉴스=박대성 기자] 토트넘이 프랑크 케시에(25, AC밀란)를 진심 원하고 있다. 다음 주에 공식적인 접촉을 한다. 토트넘 고위층은 이미 케시에 측 대리인과 이야기하고 있다.손흥민이 올해 여름에 구단 최고 대우로 재계약을 했는데, 곧바로 반년 만에 팀 최고 연봉자가 생기게 된다.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrJ-bh-5OG">
+                                                        <rect key="frame" x="20" y="104.5" width="274" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="lineButtonClicked:" destination="yZf-2M-xje" eventType="touchUpInside" id="oiy-dj-fuY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="rrJ-bh-5OG" firstAttribute="top" secondItem="M5u-1g-BCR" secondAttribute="bottom" constant="8" id="H38-9w-sH7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rrJ-bh-5OG" secondAttribute="bottom" constant="15" id="ZTJ-yn-04S"/>
+                                                    <constraint firstAttribute="trailing" secondItem="M5u-1g-BCR" secondAttribute="trailing" constant="15" id="jc2-3g-SVr"/>
+                                                    <constraint firstItem="rrJ-bh-5OG" firstAttribute="leading" secondItem="nvx-nH-Igf" secondAttribute="leading" constant="20" id="jqV-4k-P1q"/>
+                                                    <constraint firstItem="M5u-1g-BCR" firstAttribute="top" secondItem="nvx-nH-Igf" secondAttribute="top" constant="15" id="mT1-gI-DGE"/>
+                                                    <constraint firstItem="M5u-1g-BCR" firstAttribute="leading" secondItem="nvx-nH-Igf" secondAttribute="leading" constant="15" id="qxu-iQ-oEE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rrJ-bh-5OG" secondAttribute="trailing" constant="20" id="u0I-Gm-0eI"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="611-c8-iFV" userLabel="ContentView">
+                                                <rect key="frame" x="0.0" y="420.5" width="414" height="726.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzd-oP-pQl">
+                                                        <rect key="frame" x="8" y="8" width="398" height="710.5"/>
+                                                        <mutableString key="text">스포티비뉴스=박대성 기자] 토트넘이 프랑크 케시에(25, AC밀란)를 진심 원하고 있다. 다음 주에 공식적인 접촉을 한다. 토트넘 고위층은 이미 케시에 측 대리인과 이야기하고 있다.
+
+영국 매체 '익스프레스'는 27일(한국시간) "토트넘이 일찍이 케시에 영입을 마무리하려고 한다. 안토니오 콘테 감독은 1월 겨울 이적 시장에 먼저 영입하고 싶은 선수로 케시에를 점찍었다. 맨체스터 유나이티드와 아스널 관심을 받고 있지만, 토트넘이 접촉한 상황"이라고 알렸다.
+
+케시에는 아탈란타를 거쳐 AC밀란에서 활약하고 있다. 왕성한 활동량에 박스-투-박스로 미드필더 전역에 영향력을 발휘한다. 실제 수비형 미드필더, 중앙 미드필더를 볼 수 있어 활용폭이 넓다. 183cm 다부진 피지컬에 패스 능력까지 향상됐다.
+
+이탈리아 세리에A 톱 미드필더로 평가된다. 세리에A에서 준척급 활약을 하고 있기에, 파비오 파라티치 단장과 콘테 감독 눈에 들었다. AC밀란은 케시에와 재계약을 원하지만, 케시에 측은 이적료 0원에 떠나기로 했다.
+
+토트넘이 케시에에게 접근했다. 1월부터 보스만 룰에 따라 자유롭게 협상할 수 있다. 자유계약대상자(FA) 영입을 위해서 거액의 연봉을 제안했는데, 연봉 1000만 유로(약 134억 원)를 협상 테이블에 올려둔 거로 추정된다. 영국 '팀 토크'는 "케시에가 토트넘 제안을 수락한다면, 손흥민보다 더 많은 연봉을 받을 것"이라고 짚었다.
+
+손흥민이 올해 여름에 구단 최고 대우로 재계약을 했는데, 곧바로 반년 만에 팀 최고 연봉자가 생기게 된다. 물론 콘테 감독은 케시에를 포함한 1월 보강에 "지금은 말 할 수 없다. 구단과 논의를 통해 가능성이 있는지 알아봐야 한다"고 말했다.
+</mutableString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Jzd-oP-pQl" firstAttribute="leading" secondItem="611-c8-iFV" secondAttribute="leading" constant="8" id="Cqv-H5-bKZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Jzd-oP-pQl" secondAttribute="bottom" constant="8" id="g5J-Wn-b1H"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Jzd-oP-pQl" secondAttribute="trailing" constant="8" id="lkr-mV-0Z4"/>
+                                                    <constraint firstItem="Jzd-oP-pQl" firstAttribute="top" secondItem="611-c8-iFV" secondAttribute="top" constant="8" id="ww1-CB-wcd"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="611-c8-iFV" secondAttribute="bottom" constant="18" id="6yw-du-zdk"/>
+                                            <constraint firstItem="611-c8-iFV" firstAttribute="leading" secondItem="bKn-xC-hz1" secondAttribute="leading" id="7aj-1c-pxn"/>
+                                            <constraint firstItem="611-c8-iFV" firstAttribute="top" secondItem="nvx-nH-Igf" secondAttribute="bottom" constant="20" id="BJI-E4-gDs"/>
+                                            <constraint firstItem="nvx-nH-Igf" firstAttribute="leading" secondItem="bKn-xC-hz1" secondAttribute="leading" constant="50" id="CjT-oM-ijh"/>
+                                            <constraint firstAttribute="trailing" secondItem="nvx-nH-Igf" secondAttribute="trailing" constant="50" id="DbM-xQ-GDf"/>
+                                            <constraint firstItem="nvx-nH-Igf" firstAttribute="top" secondItem="bKn-xC-hz1" secondAttribute="top" constant="250" id="Gh1-gP-TrV"/>
+                                            <constraint firstAttribute="trailing" secondItem="etj-TQ-PhL" secondAttribute="trailing" id="SXb-cO-Wss"/>
+                                            <constraint firstAttribute="trailing" secondItem="611-c8-iFV" secondAttribute="trailing" id="WkL-R1-zlo"/>
+                                            <constraint firstItem="etj-TQ-PhL" firstAttribute="leading" secondItem="bKn-xC-hz1" secondAttribute="leading" id="ja0-8u-gm6"/>
+                                            <constraint firstItem="etj-TQ-PhL" firstAttribute="top" secondItem="bKn-xC-hz1" secondAttribute="top" id="oVH-zP-K3F"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mFG-CX-F2T" firstAttribute="leading" secondItem="bKn-xC-hz1" secondAttribute="leading" id="ACl-aM-sOr"/>
+                                    <constraint firstItem="bKn-xC-hz1" firstAttribute="top" secondItem="mFG-CX-F2T" secondAttribute="top" constant="1" id="GSC-5P-lJb"/>
+                                    <constraint firstItem="bKn-xC-hz1" firstAttribute="bottom" secondItem="mFG-CX-F2T" secondAttribute="bottom" id="oxq-Sj-GDA"/>
+                                    <constraint firstItem="bKn-xC-hz1" firstAttribute="width" secondItem="48x-I5-wPb" secondAttribute="width" id="s05-T4-TMb"/>
+                                    <constraint firstItem="bKn-xC-hz1" firstAttribute="trailing" secondItem="mFG-CX-F2T" secondAttribute="trailing" id="tx7-54-wr6"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="mFG-CX-F2T"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="48x-I5-wPb"/>
+                            </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sini" translatesAutoresizingMaskIntoConstraints="NO" id="usU-RR-SP3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="301"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3zF-dq-ibp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="krn-Jj-S0f" firstAttribute="top" secondItem="3zF-dq-ibp" secondAttribute="top" id="8zE-6t-tl5"/>
+                            <constraint firstItem="bkT-hG-f1f" firstAttribute="top" secondItem="krn-Jj-S0f" secondAttribute="bottom" id="EIK-ha-pOw"/>
+                            <constraint firstItem="usU-RR-SP3" firstAttribute="bottom" secondItem="etj-TQ-PhL" secondAttribute="bottom" id="EJX-kq-xNH"/>
+                            <constraint firstItem="3zF-dq-ibp" firstAttribute="trailing" secondItem="bkT-hG-f1f" secondAttribute="trailing" id="TxO-ws-Hzc"/>
+                            <constraint firstItem="usU-RR-SP3" firstAttribute="top" secondItem="3zF-dq-ibp" secondAttribute="top" id="Ybd-4p-7cD"/>
+                            <constraint firstItem="bkT-hG-f1f" firstAttribute="bottom" secondItem="3zF-dq-ibp" secondAttribute="bottom" id="Z8w-mW-0pv"/>
+                            <constraint firstItem="bkT-hG-f1f" firstAttribute="leading" secondItem="3zF-dq-ibp" secondAttribute="leading" id="dBW-wO-DL2"/>
+                            <constraint firstItem="3zF-dq-ibp" firstAttribute="trailing" secondItem="usU-RR-SP3" secondAttribute="trailing" id="e1V-Za-iJ5"/>
+                            <constraint firstItem="usU-RR-SP3" firstAttribute="leading" secondItem="3zF-dq-ibp" secondAttribute="leading" id="h9F-KU-Kga"/>
+                            <constraint firstItem="krn-Jj-S0f" firstAttribute="leading" secondItem="3zF-dq-ibp" secondAttribute="leading" id="o3U-Gu-p4p"/>
+                            <constraint firstItem="3zF-dq-ibp" firstAttribute="trailing" secondItem="krn-Jj-S0f" secondAttribute="trailing" id="vRb-NJ-hrL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="M5u-1g-BCR" id="hDi-t2-txA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DLf-Mg-ZR0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2020.289855072464" y="12.723214285714285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.tip" catalog="system" width="99" height="128"/>
+        <image name="sini" width="1440" height="1080"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -264,6 +407,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

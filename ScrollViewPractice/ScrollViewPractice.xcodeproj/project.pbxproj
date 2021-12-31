@@ -13,6 +13,7 @@
 		AE3C5B49277A191A005A8AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3C5B47277A191A005A8AA6 /* Main.storyboard */; };
 		AE3C5B4B277A191D005A8AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3C5B4A277A191D005A8AA6 /* Assets.xcassets */; };
 		AE3C5B4E277A191D005A8AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3C5B4C277A191D005A8AA6 /* LaunchScreen.storyboard */; };
+		AE438A39277F50E7006E0B8D /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE438A38277F50E7006E0B8D /* ScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AE3C5B4A277A191D005A8AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE3C5B4D277A191D005A8AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3C5B4F277A191D005A8AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE438A38277F50E7006E0B8D /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				AE3C5B4A277A191D005A8AA6 /* Assets.xcassets */,
 				AE3C5B4C277A191D005A8AA6 /* LaunchScreen.storyboard */,
 				AE3C5B4F277A191D005A8AA6 /* Info.plist */,
+				AE438A38277F50E7006E0B8D /* ScrollViewController.swift */,
 			);
 			path = ScrollViewPractice;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				AE3C5B46277A191A005A8AA6 /* ViewController.swift in Sources */,
 				AE3C5B42277A191A005A8AA6 /* AppDelegate.swift in Sources */,
 				AE3C5B44277A191A005A8AA6 /* SceneDelegate.swift in Sources */,
+				AE438A39277F50E7006E0B8D /* ScrollViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
