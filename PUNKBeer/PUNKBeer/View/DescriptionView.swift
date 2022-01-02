@@ -33,19 +33,15 @@ class DescriptionView: UIView {
         beerName.backgroundColor = .white
         beerName.snp.makeConstraints {
             $0.top.equalToSuperview().offset(18)
-            $0.centerX.equalToSuperview()
-            $0.trailing.greaterThanOrEqualToSuperview().inset(20)
-            $0.leading.greaterThanOrEqualToSuperview().inset(20)
+            $0.trailing.leading.equalToSuperview().inset(15)
         }
         
         beerDescription.font = .systemFont(ofSize: 18)
-        beerDescription.textAlignment = .center
+        beerDescription.numberOfLines = 4
         beerDescription.backgroundColor = .systemGray2
         beerDescription.snp.makeConstraints {
             $0.top.equalTo(beerName.snp.bottom).offset(8)
-            $0.centerX.equalToSuperview()
-            $0.trailing.greaterThanOrEqualToSuperview().inset(20)
-            $0.leading.greaterThanOrEqualToSuperview().inset(20)
+            $0.trailing.leading.equalToSuperview().inset(15)
         }
         
         detailButton.setTitle("more", for: .normal)
@@ -53,9 +49,7 @@ class DescriptionView: UIView {
         detailButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(8)
             $0.top.equalTo(beerDescription.snp.bottom).offset(8)
-            $0.centerX.equalToSuperview()
-            $0.trailing.greaterThanOrEqualToSuperview().inset(20)
-            $0.leading.greaterThanOrEqualToSuperview().inset(20)
+            $0.trailing.leading.equalToSuperview().inset(15)
         }
     }
     

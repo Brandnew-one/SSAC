@@ -17,6 +17,7 @@ class ContentView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        loadLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -31,41 +32,34 @@ class ContentView: UIView {
         pairTitleLabel.font = .boldSystemFont(ofSize: 25)
         pairTitleLabel.numberOfLines = 1
         pairTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(30)
-            $0.trailing.equalToSuperview().inset(30)
-            $0.top.equalToSuperview().inset(8)
-            $0.height.equalTo(40)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().offset(-30)
+            $0.top.equalToSuperview().offset(8)
         }
         
         pairContentLabel.font = .systemFont(ofSize: 18)
         pairContentLabel.numberOfLines = 0
         pairContentLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(30)
-            $0.trailing.equalToSuperview().inset(30)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().offset(-30)
             $0.top.equalTo(pairTitleLabel.snp.bottom).offset(8)
-            $0.height.equalTo(40)
         }
         
         tipsTitleLabel.font = .boldSystemFont(ofSize: 25)
         tipsTitleLabel.numberOfLines = 1
         tipsTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(30)
-            $0.trailing.equalToSuperview().inset(30)
-            $0.top.equalTo(pairContentLabel.snp.bottom).offset(100)
-            $0.height.equalTo(40)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().offset(-30)
+            $0.top.equalTo(pairContentLabel.snp.bottom).offset(200)
         }
         
         tipsContentLabel.font = .systemFont(ofSize: 18)
         tipsContentLabel.numberOfLines = 0
         tipsContentLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(30)
-            $0.trailing.equalToSuperview().inset(30)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().offset(-30)
             $0.top.equalTo(tipsTitleLabel.snp.bottom).offset(8)
-            $0.height.equalTo(40)
+            $0.bottom.equalToSuperview().offset(-18)
         }
-        
     }
-    
-    
-    
 }

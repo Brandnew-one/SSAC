@@ -13,12 +13,13 @@
 		AE0FF2ED2772F2120051A9BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE0FF2EC2772F2120051A9BE /* Assets.xcassets */; };
 		AE0FF2F02772F2120051A9BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE0FF2EE2772F2120051A9BE /* LaunchScreen.storyboard */; };
 		AE0FF2F8277321AC0051A9BE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FF2F7277321AC0051A9BE /* APIKey.swift */; };
-		AE0FF2FC277324000051A9BE /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FF2FB277324000051A9BE /* Beer.swift */; };
+		AE0FF2FC277324000051A9BE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FF2FB277324000051A9BE /* Model.swift */; };
 		AE0FF2FF277335E00051A9BE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE0FF2FE277335E00051A9BE /* SnapKit */; };
 		AE0FF301277337710051A9BE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FF300277337710051A9BE /* APIService.swift */; };
+		AE2588212781DB25007DD41D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2588202781DB25007DD41D /* Observable.swift */; };
+		AE2588242781DB91007DD41D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2588232781DB91007DD41D /* ViewModel.swift */; };
 		AE760EC92774517800423EA4 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE760EC82774517800423EA4 /* BottomView.swift */; };
 		AE760ECD2774608600423EA4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE760ECC2774608600423EA4 /* DescriptionView.swift */; };
-		AE760ECF2774AB2900423EA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE760ECE2774AB2900423EA4 /* Main.storyboard */; };
 		AE760ED12774BAB100423EA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE760ED02774BAB000423EA4 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,11 +32,12 @@
 		AE0FF2EF2772F2120051A9BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE0FF2F12772F2120051A9BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE0FF2F7277321AC0051A9BE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		AE0FF2FB277324000051A9BE /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		AE0FF2FB277324000051A9BE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AE0FF300277337710051A9BE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		AE2588202781DB25007DD41D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		AE2588232781DB91007DD41D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AE760EC82774517800423EA4 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		AE760ECC2774608600423EA4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		AE760ECE2774AB2900423EA4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AE760ED02774BAB000423EA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,19 +74,44 @@
 			children = (
 				AE0FF2E32772F20E0051A9BE /* AppDelegate.swift */,
 				AE0FF2E52772F20E0051A9BE /* SceneDelegate.swift */,
-				AE0FF2E72772F20E0051A9BE /* ViewController.swift */,
 				AE0FF2EC2772F2120051A9BE /* Assets.xcassets */,
 				AE0FF2EE2772F2120051A9BE /* LaunchScreen.storyboard */,
 				AE0FF2F12772F2120051A9BE /* Info.plist */,
+				AE2588202781DB25007DD41D /* Observable.swift */,
 				AE0FF2F7277321AC0051A9BE /* APIKey.swift */,
 				AE0FF300277337710051A9BE /* APIService.swift */,
-				AE0FF2FB277324000051A9BE /* Beer.swift */,
+				AE25881E2781D301007DD41D /* View */,
+				AE25881F2781D317007DD41D /* Model */,
+				AE2588222781DB43007DD41D /* ViewModel */,
+			);
+			path = PUNKBeer;
+			sourceTree = "<group>";
+		};
+		AE25881E2781D301007DD41D /* View */ = {
+			isa = PBXGroup;
+			children = (
 				AE760EC82774517800423EA4 /* BottomView.swift */,
 				AE760ECC2774608600423EA4 /* DescriptionView.swift */,
 				AE760ED02774BAB000423EA4 /* ContentView.swift */,
-				AE760ECE2774AB2900423EA4 /* Main.storyboard */,
+				AE0FF2E72772F20E0051A9BE /* ViewController.swift */,
 			);
-			path = PUNKBeer;
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE25881F2781D317007DD41D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE0FF2FB277324000051A9BE /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE2588222781DB43007DD41D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AE2588232781DB91007DD41D /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE760ECF2774AB2900423EA4 /* Main.storyboard in Resources */,
 				AE0FF2F02772F2120051A9BE /* LaunchScreen.storyboard in Resources */,
 				AE0FF2ED2772F2120051A9BE /* Assets.xcassets in Resources */,
 			);
@@ -165,11 +191,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE0FF2E82772F20E0051A9BE /* ViewController.swift in Sources */,
-				AE0FF2FC277324000051A9BE /* Beer.swift in Sources */,
+				AE0FF2FC277324000051A9BE /* Model.swift in Sources */,
 				AE0FF2E42772F20E0051A9BE /* AppDelegate.swift in Sources */,
+				AE2588242781DB91007DD41D /* ViewModel.swift in Sources */,
 				AE0FF2F8277321AC0051A9BE /* APIKey.swift in Sources */,
 				AE760EC92774517800423EA4 /* BottomView.swift in Sources */,
 				AE760ED12774BAB100423EA4 /* ContentView.swift in Sources */,
+				AE2588212781DB25007DD41D /* Observable.swift in Sources */,
 				AE0FF301277337710051A9BE /* APIService.swift in Sources */,
 				AE0FF2E62772F20E0051A9BE /* SceneDelegate.swift in Sources */,
 				AE760ECD2774608600423EA4 /* DescriptionView.swift in Sources */,
