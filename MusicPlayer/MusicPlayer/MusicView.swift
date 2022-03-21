@@ -37,10 +37,12 @@ class MusicView: UIView {
         
         spendTimeLabel.text = "00:00"
         spendTimeLabel.font = .boldSystemFont(ofSize: 15)
+        spendTimeLabel.textColor = .black
         spendTimeLabel.textAlignment = .center
         
         totalTimeLabel.text = "00:00"
         totalTimeLabel.font = .boldSystemFont(ofSize: 15)
+        totalTimeLabel.textColor = .black
         totalTimeLabel.textAlignment = .center
         
         var imageConfig = UIImage.SymbolConfiguration(pointSize: 35)

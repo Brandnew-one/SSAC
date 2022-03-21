@@ -7,6 +7,7 @@
 
 import AVFoundation
 import UIKit
+import MediaPlayer
 import SnapKit
 
 class MusicViewController: UIViewController {
@@ -14,14 +15,18 @@ class MusicViewController: UIViewController {
     let musicView = MusicView()
     var isPlaying = false
     var timer: Timer!
+    var session = AVAudioSession.sharedInstance()
     var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        setupButton()
+        setupTarget()
+        setupAudioSession()
         initializePlayer()
+        remoteCenterSetting()
+        remoteCommandInfoCenterSetting()
     }
     
     func setupView() {
@@ -35,8 +40,11 @@ class MusicViewController: UIViewController {
         }
     }
     
-    func setupButton() {
+    func setupTarget() {
         musicView.playButton.addTarget(self, action: #selector(playButtonClicked), for: .touchUpInside)
+        musicView.backwardButton.addTarget(self, action: #selector(backwardButtonClicked), for: .touchUpInside)
+        musicView.forwardButton.addTarget(self, action: #selector(backwardButtonClicked), for: .touchUpInside)
+        musicView.slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
     }
     
     // 분분:초초 로 표현해주기 위해서
@@ -75,10 +83,37 @@ class MusicViewController: UIViewController {
         isPlaying = !isPlaying
     }
     
+    @objc func backwardButtonClicked() {
+        if Double(player!.currentTime) < 15 {
+            self.player?.currentTime = TimeInterval(0.0)
+        } else {
+            self.player?.currentTime = TimeInterval(player!.currentTime - 15)
+        }
+    }
+    
+//    @objc func forwardButtonClicked() {
+//
+//    }
+    
+    @objc func sliderValueChanged(_ sender: UISlider) {
+        self.updateSpendTime(time: TimeInterval(sender.value))
+        self.player?.currentTime = TimeInterval(sender.value)
+    }
+    
 }
 
 extension MusicViewController: AVAudioPlayerDelegate {
     
+    // 세선을 설정해주는것만으로 백그라운드 재생이 된다 But 홈화면에서 정보를 받을 수 없다.
+    func setupAudioSession() {
+        session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(.playback, mode: .default, options: [])
+        } catch let error as NSError {
+            print("Session Error", error)
+        }
+    }
+   
     // AVAudioPlayer 초기화
     func initializePlayer() {
         guard let soundAsset = NSDataAsset(name : "Til I Hear'em Say - NEFFEX") else {
@@ -89,8 +124,9 @@ extension MusicViewController: AVAudioPlayerDelegate {
             try self.player = AVAudioPlayer(data: soundAsset.data)
             self.player?.delegate = self
         } catch let error as NSError {
-            print("error")
+            print("Player Error", error)
         }
+        
         // 현재 음원의 총 길이를 Label로 표시해주기 위해서
         let minute = Int(self.player!.duration / 60)
         let second = Int(self.player!.duration.truncatingRemainder(dividingBy: 60))
@@ -102,6 +138,7 @@ extension MusicViewController: AVAudioPlayerDelegate {
         self.musicView.slider.value = Float(self.player!.currentTime)
     }
 
+
     // 현재 음악이 종료되면 타이머를 해제하고 재생버튼, 슬라이더, 재생 Label을 모두 0으로 초기화 시켜준다
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         self.isPlaying = false
@@ -110,6 +147,42 @@ extension MusicViewController: AVAudioPlayerDelegate {
         self.updateSpendTime(time: 0)
         self.invalidateTimer()
     }
+    
+    
+    // 홈화면 및 제어화면에서 제어 할 수 있도록 설정 (playBack모드)
+    func remoteCenterSetting() {
+        // remote control event 받기 시작
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        let center = MPRemoteCommandCenter.shared() // 제어 센터 재생버튼 누르면 발생할 이벤트를 정의합니다.
+        center.playCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            self.player!.play()
+            return MPRemoteCommandHandlerStatus.success
+        }
+        
+        // 제어 센터 pause 버튼 누르면 발생할 이벤트를 정의합니다.
+        center.pauseCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            self.player!.pause()
+            return MPRemoteCommandHandlerStatus.success
+        }
+    }
+    
+    // 홈화면 및 제어화면에서 재생중인 음악의 정보를 확인할 수 있도록
+    func remoteCommandInfoCenterSetting() {
+        let center = MPNowPlayingInfoCenter.default()
+        var nowPlayingInfo = center.nowPlayingInfo ?? [String: Any]()
+        nowPlayingInfo[MPMediaItemPropertyTitle] = "싱글벙글"
+        nowPlayingInfo[MPMediaItemPropertyArtist] = "시니"
+        if let albumCoverPage = UIImage(named: "sini") {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: albumCoverPage.size, requestHandler: { size in
+                return albumCoverPage })
+
+        } // 콘텐츠 총 길이
+        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player!.duration // 콘텐츠 재생 시간에 따른 progressBar 초기화
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player!.rate // 콘텐츠 현재 재생시간
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player!.currentTime
+        center.nowPlayingInfo = nowPlayingInfo
+    }
+
 
 }
 
