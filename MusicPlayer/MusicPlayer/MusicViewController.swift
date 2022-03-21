@@ -43,7 +43,7 @@ class MusicViewController: UIViewController {
     func setupTarget() {
         musicView.playButton.addTarget(self, action: #selector(playButtonClicked), for: .touchUpInside)
         musicView.backwardButton.addTarget(self, action: #selector(backwardButtonClicked), for: .touchUpInside)
-        musicView.forwardButton.addTarget(self, action: #selector(backwardButtonClicked), for: .touchUpInside)
+        musicView.forwardButton.addTarget(self, action: #selector(forwardButtonClicked), for: .touchUpInside)
         musicView.slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
     }
     
@@ -77,7 +77,7 @@ class MusicViewController: UIViewController {
             self.musicView.playButton.setImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
         } else { // 노래 재생상태에서 누른 경우
             self.player?.stop()
-            self.invalidateTimer()
+//            self.invalidateTimer()
             self.musicView.playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         }
         isPlaying = !isPlaying
@@ -91,9 +91,13 @@ class MusicViewController: UIViewController {
         }
     }
     
-//    @objc func forwardButtonClicked() {
-//
-//    }
+    @objc func forwardButtonClicked() {
+        if Double(player!.currentTime + 15) >= Double(player!.duration) {
+            self.player?.currentTime = TimeInterval(player!.duration)
+        } else {
+            self.player?.currentTime = TimeInterval(player!.currentTime + 15)
+        }
+    }
     
     @objc func sliderValueChanged(_ sender: UISlider) {
         self.updateSpendTime(time: TimeInterval(sender.value))
